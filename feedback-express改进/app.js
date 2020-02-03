@@ -76,6 +76,8 @@
 //     console.log('3000-port running');
 //   });
 var express = require('express');
+var bodyParser = require('body-parser');
+
 var app = express();
 
 var comments = [
@@ -106,6 +108,12 @@ var comments = [
   },
 ];
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 app.use('/public/', express.static('./public/'));
 app.engine('html', require('express-art-template'));
 
@@ -119,9 +127,9 @@ app.get('/', function(req, res) {
 app.get('/post', function(req, res) {
   res.render('post.html');
 });
-app.get('/pinglun', function(req, res) {
+app.post('/post', function(req, res) {
   // console.log(req.query);
-  var comment = req.query;
+  var comment = req.body;
   comment.dateTime = '2015-1-15';
   comments.unshift(comment);
   // res.statusCode = 302;
@@ -129,6 +137,6 @@ app.get('/pinglun', function(req, res) {
   res.redirect('/');
 });
 
-app.listen(3001, function() {
+app.listen(3000, function() {
   console.log('running');
 });
