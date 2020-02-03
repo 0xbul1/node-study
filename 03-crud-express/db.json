@@ -1,0 +1,11 @@
+{
+  "students": [
+    { "id": 1, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
+    { "id": 2, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
+    { "id": 3, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
+    { "id": 4, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
+    { "id": 5, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
+    { "id": 6, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
+    { "id": 7, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" }
+  ]
+}
