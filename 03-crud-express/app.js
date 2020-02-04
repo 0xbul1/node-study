@@ -1,26 +1,29 @@
 var express = require('express');
 var app = express();
-var fs = require('fs');
+var router = require('./router');
+var bodyParser = require('body-parser');
+// var fs = require('fs');
 
 // express static filesnode_modules
 app.use('/node_modules/', express.static('./node_modules/'));
 app.use('/public/', express.static('./public/'));
-
+// 配置模版引擎和body-parser，要在挂载路由之前
 // 使用模版引擎
 app.engine('html', require('express-art-template'));
-app.get('/', function(req, res) {
-  // 这个utf-8相当于data.toString
-  fs.readFile('./db.json', 'utf-8', function(err, data) {
-    if (err) return res.status(500).send('Server error');
-    // 文件中读取的是字符串，要专转成对象
-    var students = JSON.parse(data).students;
-    // res.send('hello curd');
-    res.render('index.html', {
-      labels: ['🤪', '🎃', '🙀', '🐼'],
-      students: students,
-    });
-  });
-});
+
+// 配置body-parser
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+// 第二种方法的配合
+// router(app);
+
+//第三种方法配合！
+// 把路由容器挂载到app 服务中
+app.use(router);
 
 app.listen(3000, function() {
   console.log('3000 port running');
