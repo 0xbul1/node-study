@@ -35,16 +35,28 @@
 // 方法3
 // express 提供了一种更好的方式专门来包装路由
 var fs = require('fs');
+var Student = require('./student');
+
 var express = require('express');
 // 1，包装一个路由容器
 var router = express.Router();
 // 2, 把路由挂载到路由容器
 router.get('/students', function(req, res) {
   // 这个utf-8相当于data.toString
-  fs.readFile('./db.json', 'utf-8', function(err, data) {
+  // fs.readFile('./db.json', 'utf-8', function(err, data) {
+  //   if (err) return res.status(500).send('Server error');
+  //   // 文件中读取的是字符串，要专转成对象
+  //   var students = JSON.parse(data).students;
+  //   // res.send('hello curd');
+  //   res.render('index.html', {
+  //     labels: ['🤪', '🎃', '🙀', '🐼'],
+  //     students: students,
+  //   });
+  // });
+  Student.find(function(err, students) {
     if (err) return res.status(500).send('Server error');
     // 文件中读取的是字符串，要专转成对象
-    var students = JSON.parse(data).students;
+    // var students = JSON.parse(students).students;
     // res.send('hello curd');
     res.render('index.html', {
       labels: ['🤪', '🎃', '🙀', '🐼'],
@@ -52,6 +64,7 @@ router.get('/students', function(req, res) {
     });
   });
 });
+
 router.get('/students/new', function(req, res) {
   res.render('new.html');
 });
