@@ -73,10 +73,28 @@ router.post('/students/new', function(req, res) {
   // 处理 (数据保存到db.json文件持久化)
   // 先读取转成对象，往对象中push，把对象转成字符串，把字符串再次写入文件
   // 响应
-  console.log(req.body);
+  Student.save(req.body, function(err) {
+    if (err) return res.status(500).send('Server error');
+    res.redirect('/students');
+  });
 });
-router.get('/students/edit', function(req, res) {});
-router.post('/students/edit', function(req, res) {});
+router.get('/students/edit', function(req, res) {
+  // 1，在客户端的列表页中处理链接问题（id参数）
+  // 2，获取编辑的学生id
+  // 3，渲染编辑页面
+  Student.findById(parseInt(req.query.id), function(err, student) {
+    if (err) return res.status(500).send('Server error');
+    res.render('edit.html', {
+      student: student,
+    });
+  });
+});
+router.post('/students/edit', function(req, res) {
+  Student.updateById(req.body, function(err) {
+    if (err) return res.status(500).send('Server error');
+    res.redirect('/students');
+  });
+});
 router.get('/students/delete', function(req, res) {});
 
 // 把 router导出

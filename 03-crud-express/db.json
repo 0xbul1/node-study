@@ -1,11 +1,1 @@
-{
-  "students": [
-    { "id": 1, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
-    { "id": 2, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
-    { "id": 3, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
-    { "id": 4, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
-    { "id": 5, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
-    { "id": 6, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" },
-    { "id": 7, "name": "周星星", "age": 18, "sex": 0, "hobbies": "睡觉⌚️" }
-  ]
-}
+{"students":[{"id":1,"name":"周星星1","age":18,"gender":0,"hobbies":"睡觉⌚️"},{"id":2,"name":"周星星2","age":18,"gender":0,"hobbies":"睡觉⌚️"},{"id":3,"name":"周星星3","age":18,"gender":0,"hobbies":"睡觉⌚️"},{"id":4,"name":"周星星4","age":18,"gender":0,"hobbies":"睡觉⌚️"},{"id":5,"name":"周星星5","age":18,"gender":0,"hobbies":"睡觉⌚️"},{"id":6,"name":"周星星6","age":18,"gender":0,"hobbies":"睡觉⌚️"},{"id":7,"name":"周星星7","age":18,"gender":0,"hobbies":"睡觉⌚️"},{"name":"周星星8","gender":"0","age":"8","hobbies":"888","id":8},{"name":"周星星9","gender":"0","age":"9","hobbies":"111","id":9},{"name":"aaa","gender":"0","age":"111","hobbies":"啊啊啊","id":10},{"name":"aaa","gender":"0","age":"1","hobbies":"aaa","id":11},{"name":"aaa","gender":"0","age":"111","hobbies":"啊啊啊","id":12},{"name":"aaa","gender":"0","age":"11","hobbies":"111","id":13},{"name":"aaa","gender":"0","age":"11","hobbies":"111","id":14},{"name":"aaa","gender":"0","age":"111","hobbies":"啊啊啊","id":15}]}

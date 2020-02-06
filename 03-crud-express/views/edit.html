@@ -89,8 +89,20 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h2 class="sub-header">添加学生</h2>
-          <form action="/students/new" method="POST">
+          <h2 class="sub-header">修改学生</h2>
+          <form action="/students/edit" method="post">
+            <div class="form-group">
+              <label for="id">#</label>
+              <input
+                type="hidden"
+                class="form-control"
+                id="id"
+                placeholder="ID"
+                name="id"
+                value="{{student.id}}"
+                disabled
+              />
+            </div>
             <div class="form-group">
               <label for="name">姓名</label>
               <input
@@ -99,12 +111,19 @@
                 id="name"
                 placeholder="姓名"
                 name="name"
+                value="{{student.name}}"
               />
             </div>
             <div class="form-group">
               <label for="gender">性别</label>
               <label class="radio-inline">
-                <input type="radio" name="gender" id="gender" value="0" />
+                <input
+                  type="radio"
+                  name="gender"
+                  id="gender"
+                  value="0"
+                  checked
+                />
                 男
               </label>
               <label class="radio-inline">
@@ -122,6 +141,7 @@
                 required
                 min="1"
                 max="150"
+                value="{{student.age}}"
               />
             </div>
             <div class="form-group">
@@ -132,6 +152,7 @@
                 id="hobbies"
                 placeholder="爱好"
                 name="hobbies"
+                value="{{student.hobbies}}"
               />
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
