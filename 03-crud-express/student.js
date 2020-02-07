@@ -100,11 +100,32 @@ function updateById(student, callback) {
 // );
 
 // 删除学生
-// function delete() {}
+function deleteById(id, callback) {
+  fs.readFile(dbPath, 'utf8', function(err, data) {
+    if (err) return callback(err);
+    var students = JSON.parse(data).students;
+    var deleteId = students.findIndex(function(item) {
+      return item.id === parseInt(id);
+    });
+    students.splice(deleteId, 1);
+
+    // 对象保存成字符串
+    var fileData = JSON.stringify({
+      students: students,
+    });
+    // 字符串保存到文件
+    fs.writeFile(dbPath, fileData, function(err) {
+      if (err) return callback(err);
+      // 成功没有err。返回null
+      callback(null);
+    });
+  });
+}
 
 module.exports = {
   find,
   findById,
   save,
   updateById,
+  deleteById,
 };

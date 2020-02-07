@@ -95,7 +95,12 @@ router.post('/students/edit', function(req, res) {
     res.redirect('/students');
   });
 });
-router.get('/students/delete', function(req, res) {});
+router.get('/students/delete', function(req, res) {
+  Student.deleteById(req.query.id, function(err) {
+    if (err) return res.status(500).send('Server error');
+    res.redirect('/students');
+  });
+});
 
 // 把 router导出
 module.exports = router;
