@@ -42,7 +42,7 @@ app.post('/api/login', async (req, res) => {
 
   //生成token
   // 一般不用session了;
-  // session有状态，用这个浏览器换个浏览器关掉浏览器session就失效;
+  // session有状态，用这个浏览器换个浏览器或者关掉浏览器session就失效;
   // restful 偏向于无状态链接 一般用jwt作为用户登录的凭据
   const jwt = require('jsonwebtoken');
   // 生成token只是为了告诉服务端，刚才签发的token在数据库对应的哪个用户，所以最简单只需要用户id
